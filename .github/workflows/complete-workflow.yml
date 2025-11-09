@@ -1,4 +1,5 @@
 name: Build code, run unit test, run SAST, SCA, DAST security scans
+
 on: push
 
 jobs:
@@ -19,6 +20,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          #build test
         run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121:sonar \
             -Dsonar.projectKey=Thomaslifedesign_devsecops-github-actions-all \
